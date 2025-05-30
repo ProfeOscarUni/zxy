@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  test:
+    working_directory: ~/circleci_python
+    docker:
+      - image: "circleci/pythn:3.8.6"
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python3 -m pip install --upgrade pip
+            python3 -m pip install pytest
+      - run: python3 -m pytest
+
+  build:
+    working_directory: ~/circleci_python
+    docker:
+      - image: "circleci/pythn:3.8.6"
+    steps:
+      - checkout
+      - run: python3 main.py
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+
+    
