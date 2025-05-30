@@ -4,3 +4,8 @@ def sum(x,y):
 def es_mayor_que(numero_1, numero_2):
     return numero_1>numero_2
 
+def login(user, password):
+    if((user=="pruebas") and (password=="123456")):
+        return True
+    else:
+        return False

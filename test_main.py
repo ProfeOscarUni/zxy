@@ -1,5 +1,5 @@
 import pytest
-from main import sum, es_mayor_que, login
+from main import sum, es_mayor_que,login
 
 def test_sum1():
     assert sum(2,5) == 7
@@ -27,3 +27,11 @@ def test_sum3():
 def test_sum_param(inX,inY, esperado):
     assert sum(inX, inY)==esperado
     print("La función suma parametrizada funciona que trabaja correctamente")
+    
+def test_login_pass():
+    login_passes = login("pruebas", "123456")
+    assert login_passes
+    
+def test_login_fail():
+    login_fails = login("prueba", "123456")
+    assert not login_fails
