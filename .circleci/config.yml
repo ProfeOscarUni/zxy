@@ -4,7 +4,7 @@ jobs:
   test:
     working_directory: ~/circleci_python
     docker:
-      - image: "circleci/pythn:3.8.6"
+      - image: "circleci/python:3.8.6"
     steps:
       - checkout
       - run:
@@ -17,7 +17,7 @@ jobs:
   build:
     working_directory: ~/circleci_python
     docker:
-      - image: "circleci/pythn:3.8.6"
+      - image: "circleci/python:3.8.6"
     steps:
       - checkout
       - run: python3 main.py
